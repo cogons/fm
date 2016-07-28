@@ -14,6 +14,7 @@
 		28F7831E1D4932C5002E3787 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28F7831C1D4932C5002E3787 /* LaunchScreen.storyboard */; };
 		28F783291D4932C5002E3787 /* fmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F783281D4932C5002E3787 /* fmTests.swift */; };
 		28F783341D4932C5002E3787 /* fmUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F783331D4932C5002E3787 /* fmUITests.swift */; };
+		28F783451D494490002E3787 /* dm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 28F783441D494490002E3787 /* dm.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		28F7832F1D4932C5002E3787 /* fmUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fmUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		28F783331D4932C5002E3787 /* fmUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fmUITests.swift; sourceTree = "<group>"; };
 		28F783351D4932C5002E3787 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28F783441D494490002E3787 /* dm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dm.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		28F783071D4932C5002E3787 = {
 			isa = PBXGroup;
 			children = (
+				28F783441D494490002E3787 /* dm.mp3 */,
 				28F783121D4932C5002E3787 /* fm */,
 				28F783271D4932C5002E3787 /* fmTests */,
 				28F783321D4932C5002E3787 /* fmUITests */,
@@ -230,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28F7831E1D4932C5002E3787 /* LaunchScreen.storyboard in Resources */,
+				28F783451D494490002E3787 /* dm.mp3 in Resources */,
 				28F7831B1D4932C5002E3787 /* Assets.xcassets in Resources */,
 				28F783191D4932C5002E3787 /* Main.storyboard in Resources */,
 			);
@@ -482,6 +486,7 @@
 				28F7833A1D4932C5002E3787 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		28F7833B1D4932C5002E3787 /* Build configuration list for PBXNativeTarget "fmTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +495,7 @@
 				28F7833D1D4932C5002E3787 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		28F7833E1D4932C5002E3787 /* Build configuration list for PBXNativeTarget "fmUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +504,7 @@
 				28F783401D4932C5002E3787 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
