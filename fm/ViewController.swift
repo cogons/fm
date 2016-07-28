@@ -13,17 +13,27 @@ import AVFoundation
 class ViewController: UIViewController {
 
     @IBOutlet weak var songName: UILabel!
-
+    
+    var player = AVPlayer()
     
     override func viewDidLoad() {
+        
+
         super.viewDidLoad()
+        
+        var player:AVPlayer
         // Do any additional setup after loading the view, typically from a nib.
-        playSong()
+        
     }
 
+    @IBAction func play(sender: AnyObject) {
+        self.player.pause()
+        playSong()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
     }
     
     func getChannels(){
@@ -63,12 +73,13 @@ class ViewController: UIViewController {
                 self.songName.text = jsonResult["song"]![0]["public_time"] as! String
                 
                 var songUrl = jsonResult["song"]![0]["url"] as! String
-                let videoURL = NSURL(string: songUrl)
-                let player = AVPlayer(URL: videoURL!)
-                let playerLayer = AVPlayerLayer(player: player)
+                var videoURL = NSURL(string: songUrl)
+                self.player = AVPlayer(URL: videoURL!)
+                
+                let playerLayer = AVPlayerLayer(player: self.player)
                 playerLayer.frame = self.view.bounds
                 self.view.layer.addSublayer(playerLayer)
-                player.play()
+                self.player.play()
             }
             
         }
