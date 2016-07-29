@@ -9,21 +9,25 @@
 import UIKit
 
 
-class ChannelController: UITableViewController, HttpProtocol {
+class ChannelController: UITableViewController,HttpProtocol {
+    
+    //定义一个变量，接收频道的歌曲数据
+    var tableData = [:]
+    
+    //定义一个变量，接收频道的数据
+    var channelData = [:]
+    var data = [:]
+    var num:Int = 0
 
-    var apifm = api()
-       
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        var eHttp:HttpController = HttpController()
+        eHttp.delegate = self
+        tableView.dataSource = self
+        tableView.delegate = self
         
-        apifm.delegate = self
-        apifm.onSearch("https://www.douban.com/j/app/radio/channels")
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        eHttp.onSearch("https://www.douban.com/j/app/radio/channels")
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,26 +44,14 @@ class ChannelController: UITableViewController, HttpProtocol {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        
-        
-        return 2
-        
-    }
-    
-    func didReceiveResult(result: AnyObject) {
-        print(result)
+        return self.num
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("channel", forIndexPath: indexPath)
-
-       
-                cell.textLabel?.text = "ss"
-                
-                cell.detailTextLabel?.text = "ss"
         
-        
+        cell.textLabel?.text = "ss"
         // Configure the cell...
 
         return cell
@@ -110,5 +102,25 @@ class ChannelController: UITableViewController, HttpProtocol {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func didReceive(results:AnyObject){
+        //        println("获取到得数据：\(results)")
+        //print(results)
+        self.data = results as! NSDictionary
+        
+        if results["channels"] != nil{
+            self.channelData = results as! NSDictionary
+        } else if results["song"] != nil{
+            self.tableData = results as! NSDictionary
+        }
+        
+        self.num = self.channelData["channels"]!.count
+        //print(self.channelData)
+        print(self.tableData)
+        self.tableView.reloadData()
 
-}
+    }
+    }
+
+
+

@@ -13,10 +13,8 @@ import AVFoundation
 class ViewController: UIViewController {
 
     @IBOutlet weak var songName: UILabel!
-    @IBOutlet weak var artistName: UILabel!
-    @IBOutlet weak var albumName: UILabel!
     
-     var player = AVPlayer()
+    var player = AVPlayer()
     
     override func viewDidLoad() {
         
@@ -29,7 +27,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func play(sender: AnyObject) {
-        
+        self.player.pause()
         playSong()
     }
     override func didReceiveMemoryWarning() {
@@ -53,7 +51,7 @@ class ViewController: UIViewController {
 
     
     func getSong(){
-        var urlPath = NSURL(string: "https://douban.fm/j/mine/playlist?channel=6")
+        var urlPath = NSURL(string: "https://douban.fm/j/mine/playlist?channel=0")
         var session = NSURLSession.sharedSession()
         var task = session.dataTaskWithURL(urlPath!){data,response,error in
             var jsonResult:NSDictionary = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
@@ -67,15 +65,13 @@ class ViewController: UIViewController {
     
     func playSong(){
         
-        var urlPath = NSURL(string: "https://www.douban.com/j/app/radio/people?app_name=radio_android&version=100&type=n&channel=1")
+        var urlPath = NSURL(string: "https://douban.fm/j/mine/playlist?channel=0")
         var session = NSURLSession.sharedSession()
         var task = session.dataTaskWithURL(urlPath!){data,response,error in
             var jsonResult:NSDictionary = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
             dispatch_async(dispatch_get_main_queue()){
-                self.player.pause()
-                self.songName.text = jsonResult["song"]![0]["title"] as! String
-                self.albumName.text = jsonResult["song"]![0]["albumtitle"] as! String
-                self.artistName.text = jsonResult["song"]![0]["artist"] as! String
+                self.songName.text = jsonResult["song"]![0]["public_time"] as! String
+                
                 var songUrl = jsonResult["song"]![0]["url"] as! String
                 var videoURL = NSURL(string: songUrl)
                 self.player = AVPlayer(URL: videoURL!)
