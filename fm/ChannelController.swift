@@ -12,12 +12,13 @@ import UIKit
 class ChannelController: UITableViewController,HttpProtocol {
     
     //定义一个变量，接收频道的歌曲数据
-    var tableData = [:]
+    var tableData = []
     
     //定义一个变量，接收频道的数据
-    var channelData = [:]
+    var channelData = []
     var data = [:]
     var num:Int = 0
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,20 +45,22 @@ class ChannelController: UITableViewController,HttpProtocol {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.num
+        
+        return self.channelData.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("channel", forIndexPath: indexPath)
         
-        cell.textLabel?.text = "ss"
+       
+        cell.textLabel?.text = self.channelData[indexPath.row]["name"] as! String
+        //cell.textLabel?.text = self.channelData[indexPath.row]["name"]!!.string
         // Configure the cell...
 
         return cell
     }
     
-
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -109,14 +112,14 @@ class ChannelController: UITableViewController,HttpProtocol {
         self.data = results as! NSDictionary
         
         if results["channels"] != nil{
-            self.channelData = results as! NSDictionary
+            self.channelData = results["channels"] as! NSArray
         } else if results["song"] != nil{
-            self.tableData = results as! NSDictionary
+            self.tableData = results["song"] as! NSArray
         }
         
-        self.num = self.channelData["channels"]!.count
+        self.num = self.channelData.count
         //print(self.channelData)
-        print(self.tableData)
+        //print(self.tableData)
         self.tableView.reloadData()
 
     }

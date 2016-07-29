@@ -8,7 +8,7 @@
         <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="fm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Play" id="BYZ-38-t0r" customClass="ViewController" customModule="fm" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -34,6 +34,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="n0f-Xs-zaS"/>
+                    <navigationItem key="navigationItem" id="LB6-A3-nHP"/>
                     <connections>
                         <outlet property="songName" destination="LED-Ja-gbf" id="tJZ-PX-xk5"/>
                     </connections>
@@ -63,17 +64,17 @@
         <!--Item-->
         <scene sceneID="PqH-k9-lsV">
             <objects>
-                <tableViewController id="KRA-Sl-Hp2" customClass="ChannelController" customModule="fm" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Channel" id="KRA-Sl-Hp2" customClass="ChannelController" customModule="fm" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="bPc-dV-zhk">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="channel" id="rfU-Mo-ZCX">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="channel" rowHeight="44" id="rfU-Mo-ZCX">
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rfU-Mo-ZCX" id="D59-aa-8ym">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <rect key="contentStretch" x="0.0" y="1" width="1" height="1"/>
                                 </tableViewCellContentView>
@@ -88,7 +89,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ozN-d7-UXh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="668" y="1039"/>
+            <point key="canvasLocation" x="675" y="1096"/>
         </scene>
     </scenes>
 </document>

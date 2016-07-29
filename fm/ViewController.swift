@@ -10,11 +10,14 @@ import UIKit
 import AVKit
 import AVFoundation
 
+var channelId:Int = 0
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var songName: UILabel!
     
     var player = AVPlayer()
+    
     
     override func viewDidLoad() {
         
